@@ -2,81 +2,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content='width=device-width, initial-scale=1.0'>
-    <title>Nitin Amonkar - Freelance Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .shadow-card { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitin Amonkar - Freelance Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .card:hover { transform: translateY(-4px); transition: transform 0.3s ease; }
+    .glass { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(10px); }
+    iframe { border-radius: 1rem; overflow: hidden; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 text-gray-800">
 
-    <header class="bg-blue-800 text-white text-center py-8">
-        <h1 class="text-4xl font-bold">Nitin Amonkar</h1>
-        <p class="text-lg mt-2">Freelance ASP.NET Core & Azure Developer</p>
-        <p class="text-sm">Ulwe, Navi Mumbai</p>
-    </header>
+  <header class="bg-gradient-to-r from-blue-800 to-indigo-800 text-white text-center py-12 shadow-lg">
+    <h1 class="text-5xl font-bold tracking-wide">Nitin Amonkar</h1>
+    <p class="text-xl mt-3 font-light">Freelance ASP.NET Core & Azure Developer</p>
+    <p class="text-sm mt-1">Ulwe, Navi Mumbai</p>
+  </header>
 
-    <main class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+  <main class="max-w-6xl mx-auto px-6 py-14 space-y-16">
 
-        <section class="text-center">
-            <h2 class="text-2xl font-semibold mb-2">👋 About Me</h2>
-            <p class="text-md leading-relaxed">
-                I help small businesses and organizations by building custom web apps, internal software, and guiding them with digital tools. I specialize in ASP.NET, SQL Server, and Azure. My solutions are budget-friendly and focused on what you really need.
-            </p>
-        </section>
+    <section class="text-center">
+      <h2 class="text-3xl font-bold mb-4">👋 About Me</h2>
+      <p class="text-lg max-w-3xl mx-auto">
+        I help small businesses and organizations by building custom web apps, internal software, and guiding them with digital tools.
+        I specialize in ASP.NET, SQL Server, and Azure. My solutions are budget-friendly and focused on what you really need.
+      </p>
+    </section>
 
-        <section>
-            <h2 class="text-2xl font-semibold mb-4 text-center">💼 Services I Offer</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="bg-white p-5 rounded-xl shadow-card">
-                    <h3 class="text-lg font-bold text-blue-700">Static Business Websites</h3>
-                    <p class="text-sm mt-2">Clean, mobile-friendly websites to showcase your work.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-card">
-                    <h3 class="text-lg font-bold text-blue-700">Internal Software Tools</h3>
-                    <p class="text-sm mt-2">Billing, attendance, stock management and more.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-card">
-                    <h3 class="text-lg font-bold text-blue-700">Digital Strategy Suggestions</h3>
-                    <p class="text-sm mt-2">Which tools to use, how to save time with digital solutions.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-card">
-                    <h3 class="text-lg font-bold text-blue-700">Google Maps Listing Help</h3>
-                    <p class="text-sm mt-2">Help you get your business listed online, free.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-card">
-                    <h3 class="text-lg font-bold text-blue-700">ITR-1 Filing for Salaried</h3>
-                    <p class="text-sm mt-2">No confusion. Help with document prep and online filing.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-card">
-                    <h3 class="text-lg font-bold text-blue-700">Finance Planning Guidance</h3>
-                    <p class="text-sm mt-2">Simple advice to manage savings, investments, and reduce EMI stress.</p>
-                </div>
-            </div>
-        </section>
+    <section>
+      <h2 class="text-3xl font-bold mb-8 text-center">💼 Services I Offer</h2>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="card glass p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-800">Static Business Websites</h3>
+          <p class="text-sm mt-2">Clean, mobile-friendly websites to showcase your work.</p>
+        </div>
+        <div class="card glass p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-800">Internal Software Tools</h3>
+          <p class="text-sm mt-2">Billing, attendance, stock management and more.</p>
+        </div>
+        <div class="card glass p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-800">Digital Strategy Suggestions</h3>
+          <p class="text-sm mt-2">Which tools to use, how to save time with digital solutions.</p>
+        </div>
+        <div class="card glass p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-800">Google Maps Listing Help</h3>
+          <p class="text-sm mt-2">Help you get your business listed online, free.</p>
+        </div>
+        <div class="card glass p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-800">ITR-1 Filing for Salaried</h3>
+          <p class="text-sm mt-2">No confusion. Help with document prep and online filing.</p>
+        </div>
+        <div class="card glass p-6 rounded-2xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-800">Finance Planning Guidance</h3>
+          <p class="text-sm mt-2">Simple advice to manage savings, investments, and reduce EMI stress.</p>
+        </div>
+      </div>
+    </section>
 
-        <section class="text-center">
-            <h2 class="text-2xl font-semibold mb-4">💬 Let's Connect</h2>
-            <p class="mb-2">📞 <strong>Phone/WhatsApp:</strong> <a class="text-blue-600 underline" href="https://wa.me/919969501441" target="_blank">919969501441</a></p>
-            <p class="mb-6">📧 <strong>Email:</strong>  nituchannel26@gmail.com</p>
-            <p class="italic text-green-700">Note: My services are affordable — tailored for individuals, shops, and small firms.</p>
-        </section>
+    <section class="text-center">
+      <h2 class="text-3xl font-bold mb-4">💬 Let's Connect</h2>
+      <p class="mb-2 text-lg">📞 <strong>Phone/WhatsApp:</strong> <a class="text-blue-700 underline" href="https://wa.me/919969501441" target="_blank">919969501441</a></p>
+      <p class="mb-4 text-lg">📧 <strong>Email:</strong> nituchannel26@gmail.com</p>
+      <p class="italic text-green-700 text-sm">Note: My services are affordable — tailored for individuals, shops, and small firms.</p>
+    </section>
 
-        <section>
-            <h2 class="text-2xl font-semibold text-center mb-4">📝 Inquiry Form</h2>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfD_form_link/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </section>
+    <section>
+      <h2 class="text-3xl font-bold text-center mb-6">📝 Inquiry Form</h2>
+      <div class="overflow-hidden border border-gray-300 rounded-2xl shadow-md h-[650px]">
+        <iframe src="https://forms.gle/HsHn9pRcVGpD4vJ99" width="100%" height="100%" frameborder="0">Loading…</iframe>
+      </div>
+    </section>
 
-    </main>
+  </main>
 
-    <footer class="bg-blue-800 text-white text-center py-4 mt-10">
-        <p>© 2025 Nitin Amonkar | Powered by .NET</p>
-    </footer>
+  <footer class="bg-gradient-to-r from-blue-800 to-indigo-800 text-white text-center py-5 mt-12">
+    <p class="text-sm">© 2025 Nitin Amonkar | Powered by .NET</p>
+  </footer>
 
 </body>
 </html>
