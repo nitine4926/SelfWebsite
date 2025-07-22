@@ -1,86 +1,230 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nitin Amonkar - Freelance Developer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    .card:hover { transform: translateY(-4px); transition: transform 0.3s ease; }
-    .glass { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(10px); }
-    iframe { border-radius: 1rem; overflow: hidden; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Freelance ASP.NET Core, Azure Developer, and Digital Solutions by Nitin Amonkar" />
+    <title>NWebTech Solutions - Freelance Developer</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- AOS Animate On Scroll CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #c3dafe, #d6bcfa, #fbb6ce);
+            min-height: 100vh;
+            color: #1a202c;
+        }
+
+        header {
+            background: linear-gradient(90deg, #2c5282, #4c51bf);
+            box-shadow: 0 8px 24px rgba(76, 81, 191, 0.4);
+            backdrop-filter: saturate(180%) blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+            header .logo {
+                height: 80px;
+                width: auto;
+                transition: transform 0.3s ease;
+                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+            }
+
+                header .logo:hover {
+                    transform: scale(1.1);
+                    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.5));
+                }
+
+        h2 {
+            color: #4c51bf;
+            text-shadow: 0 1px 3px rgba(76,81,191,0.5);
+        }
+        /* Card base */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+            will-change: transform;
+        }
+            /* Card hover with float */
+            .card:hover {
+                transform: translateY(-15px) scale(1.03);
+                box-shadow: 0 20px 40px rgba(76, 81, 191, 0.35);
+            }
+            /* Service titles */
+            .card h3 {
+                color: #4c51bf;
+                font-weight: 700;
+                text-shadow: 0 1px 3px rgba(76,81,191,0.7);
+            }
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(90deg, #4c51bf, #667eea);
+            color: white;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.75rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(76, 81, 191, 0.4);
+        }
+
+            .btn-primary:hover {
+                background: linear-gradient(90deg, #3730a3, #4c51bf);
+                box-shadow: 0 6px 15px rgba(59, 52, 144, 0.8);
+            }
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Responsive tweaks */
+        @media (max-width: 640px) {
+            header .title-row {
+                flex-direction: column;
+            }
+
+            header .logo {
+                margin-bottom: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+        /* Inquiry iframe container */
+        .form-container {
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            height: 700px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #cbd5e0;
+        }
+
+            .form-container iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 1rem;
+            }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 text-gray-800">
+<body>
 
-  <header class="bg-gradient-to-r from-blue-800 to-indigo-800 text-white text-center py-12 shadow-lg">
-    <h1 class="text-5xl font-bold tracking-wide">Nitin Amonkar</h1>
-    <p class="text-xl mt-3 font-light">Freelance ASP.NET Core & Azure Developer</p>
-    <p class="text-sm mt-1">Ulwe, Navi Mumbai</p>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-6 py-14 space-y-16">
-
-    <section class="text-center">
-      <h2 class="text-3xl font-bold mb-4">👋 About Me</h2>
-      <p class="text-lg max-w-3xl mx-auto">
-        I help small businesses and organizations by building custom web apps, internal software, and guiding them with digital tools.
-        I specialize in ASP.NET, SQL Server, and Azure. My solutions are budget-friendly and focused on what you really need.
-      </p>
-    </section>
-
-    <section>
-      <h2 class="text-3xl font-bold mb-8 text-center">💼 Services I Offer</h2>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="card glass p-6 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-blue-800">Static Business Websites</h3>
-          <p class="text-sm mt-2">Clean, mobile-friendly websites to showcase your work.</p>
+    <header class="text-white py-6 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex items-center title-row">
+                <img src="logo.png" alt="NWebTech Logo" class="logo mr-4" />
+                <h1 class="text-4xl font-extrabold tracking-tight select-none">NWebTech Solutions</h1>
+            </div>
+            <div class="mt-4 sm:mt-0 text-center sm:text-right font-light">
+                <p class="text-lg">Freelance Services by <span class="font-semibold">Nitin Amonkar</span></p>
+                <p class="text-sm mt-1">Ulwe, Navi Mumbai</p>
+            </div>
         </div>
-        <div class="card glass p-6 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-blue-800">Internal Software Tools</h3>
-          <p class="text-sm mt-2">Billing, attendance, stock management and more.</p>
-        </div>
-        <div class="card glass p-6 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-blue-800">Digital Strategy Suggestions</h3>
-          <p class="text-sm mt-2">Which tools to use, how to save time with digital solutions.</p>
-        </div>
-        <div class="card glass p-6 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-blue-800">Google Maps Listing Help</h3>
-          <p class="text-sm mt-2">Help you get your business listed online, free.</p>
-        </div>
-        <div class="card glass p-6 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-blue-800">ITR-1 Filing for Salaried</h3>
-          <p class="text-sm mt-2">No confusion. Help with document prep and online filing.</p>
-        </div>
-        <div class="card glass p-6 rounded-2xl shadow-md">
-          <h3 class="text-xl font-semibold text-blue-800">Finance Planning Guidance</h3>
-          <p class="text-sm mt-2">Simple advice to manage savings, investments, and reduce EMI stress.</p>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <section class="text-center">
-      <h2 class="text-3xl font-bold mb-4">💬 Let's Connect</h2>
-      <p class="mb-2 text-lg">📞 <strong>Phone/WhatsApp:</strong> <a class="text-blue-700 underline" href="https://wa.me/919969501441" target="_blank">919969501441</a></p>
-      <p class="mb-4 text-lg">📧 <strong>Email:</strong> nituchannel26@gmail.com</p>
-      <p class="italic text-green-700 text-sm">Note: My services are affordable — tailored for individuals, shops, and small firms.</p>
-    </section>
+    <main class="max-w-7xl mx-auto px-6 py-16 space-y-20">
 
-    <section>
-      <h2 class="text-3xl font-bold text-center mb-6">📝 Inquiry Form</h2>
-      <div class="overflow-hidden border border-gray-300 rounded-2xl shadow-md h-[650px]">
-        <iframe src="https://forms.gle/HsHn9pRcVGpD4vJ99" width="100%" height="100%" frameborder="0">Loading…</iframe>
-      </div>
-    </section>
+        <!-- About -->
+        <section data-aos="fade-up" class="text-center max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6">👋 About Me</h2>
+            <p class="text-lg leading-relaxed text-gray-700">
+                I help small businesses and organizations by building custom web apps, internal software, and guiding them with digital tools.
+                I specialize in ASP.NET, SQL Server, and Azure. My solutions are budget-friendly and focused on what you really need.
+            </p>
+        </section>
 
-  </main>
+        <!-- Services -->
+        <section data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-12 text-center">💼 Services I Offer</h2>
+            <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="card" data-aos="zoom-in" data-aos-delay="50">
+                    <h3>Static Business Websites</h3>
+                    <p class="text-gray-600 leading-relaxed">Clean, mobile-friendly websites to showcase your work.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>Internal Software Tools</h3>
+                    <p class="text-gray-600 leading-relaxed">Billing, attendance, stock management and more.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="150">
+                    <h3>Digital Strategy Suggestions</h3>
+                    <p class="text-gray-600 leading-relaxed">Which tools to use, how to save time with digital solutions.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>Google Maps Listing Help</h3>
+                    <p class="text-gray-600 leading-relaxed">Help you get your business listed online, free.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="250">
+                    <h3>ITR-1 Filing for Salaried</h3>
+                    <p class="text-gray-600 leading-relaxed">No confusion. Help with document prep and online filing.</p>
+                </div>
+                <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                    <h3>Finance Planning Guidance</h3>
+                    <p class="text-gray-600 leading-relaxed">Simple advice to manage savings, investments, and reduce EMI stress.</p>
+                </div>
+            </div>
+        </section>
 
-  <footer class="bg-gradient-to-r from-blue-800 to-indigo-800 text-white text-center py-5 mt-12">
-    <p class="text-sm">© 2025 Nitin Amonkar | Powered by .NET</p>
-  </footer>
+        <!-- Connect -->
+        <section data-aos="fade-up" class="text-center max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6">💬 Let's Connect</h2>
+            <p class="mb-3 text-lg">
+                📞 <strong>Phone/WhatsApp:</strong>
+                <a href="https://wa.me/919969501441" target="_blank" rel="noopener noreferrer" class="btn-primary">919969501441</a>
+            </p>
+            <p class="mb-6 text-lg">
+                📧 <strong>Email:</strong>
+                   <a href="mailto:e4.nitin.amonkar@outlook.com" class="btn-primary">e4.nitin.amonkar@outlook.com</a>
+            </p>
+            <p class="italic text-green-700 text-sm max-w-md mx-auto">
+                Note: My services are affordable — tailored for individuals, shops, and small firms.
+            </p>
+        </section>
+
+        <!-- Inquiry Form -->
+        <section data-aos="fade-up" class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8">📝 Inquiry Form</h2>
+            <div class="form-container">
+                <iframe src="https://forms.gle/HsHn9pRcVGpD4vJ99?embedded=true"
+                        aria-label="Inquiry form"
+                        loading="lazy">
+                    Loading…
+                </iframe>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gradient-to-r from-indigo-700 to-blue-700 text-white py-6 text-center font-light">
+        <p>© 2025 Nitin Amonkar | Powered by .NET</p>
+    </footer>
+
+    <!-- AOS Animate On Scroll JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+      easing: 'ease-in-out',
+    });
+    </script>
 
 </body>
 </html>
