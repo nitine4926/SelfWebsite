@@ -3,228 +3,282 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Freelance ASP.NET Core, Azure Developer, and Digital Solutions by Nitin Amonkar" />
-    <title>NWebTech Solutions - Freelance Developer</title>
+    <title>NWebTech Solutions</title>
 
-    <!-- Tailwind CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-    <!-- AOS Animate On Scroll CSS -->
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #c3dafe, #d6bcfa, #fbb6ce);
-            min-height: 100vh;
-            color: #1a202c;
+            scroll-behavior: smooth;
+            background: linear-gradient(to bottom right, #f0fdfa, #f9fafb);
+            color: #374151;
+        }
+        /* Logo container no round, keep aspect ratio */
+        #logo {
+            max-width: 160px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+            object-fit: contain;
+        }
+        /* Circular container for icons */
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #34d399, #059669);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        header {
-            background: linear-gradient(90deg, #2c5282, #4c51bf);
-            box-shadow: 0 8px 24px rgba(76, 81, 191, 0.4);
-            backdrop-filter: saturate(180%) blur(12px);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-            header .logo {
-                height: 80px;
-                width: auto;
-                transition: transform 0.3s ease;
-                filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+            .icon-circle:hover {
+                transform: scale(1.1);
             }
 
-                header .logo:hover {
-                    transform: scale(1.1);
-                    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.5));
-                }
-
-        h2 {
-            color: #4c51bf;
-            text-shadow: 0 1px 3px rgba(76,81,191,0.5);
+            .icon-circle img {
+                width: 32px;
+                height: 32px;
+                object-fit: contain; /* preserves rectangular image shape */
+                user-select: none;
+                pointer-events: none;
+            }
+        /* Different background gradients for services */
+        .bg-monitor {
+            background: linear-gradient(135deg, #34d399, #059669);
         }
-        /* Card base */
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+
+        .bg-tool {
+            background: linear-gradient(135deg, #6366f1, #4338ca);
+        }
+
+        .bg-activity {
+            background: linear-gradient(135deg, #f43f5e, #be123c);
+        }
+
+        .bg-map {
+            background: linear-gradient(135deg, #fbbf24, #b45309);
+        }
+
+        .bg-file {
+            background: linear-gradient(135deg, #14b8a6, #0f766e);
+        }
+
+        .bg-chart {
+            background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+        }
+
+        /* Floating icons */
+        .floating-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 10px;
+            z-index: 50;
+        }
+
+            .floating-icons a {
+                background-color: rgba(16, 185, 129, 0.85);
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 9999px;
+                box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+                transition: background-color 0.3s ease;
+                color: white;
+                text-decoration: none;
+            }
+
+                .floating-icons a:hover {
+                    background-color: rgba(5, 150, 105, 0.9);
+                }
+
+        /* LinkedIn button */
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
             gap: 0.5rem;
-            will-change: transform;
-        }
-            /* Card hover with float */
-            .card:hover {
-                transform: translateY(-15px) scale(1.03);
-                box-shadow: 0 20px 40px rgba(76, 81, 191, 0.35);
-            }
-            /* Service titles */
-            .card h3 {
-                color: #4c51bf;
-                font-weight: 700;
-                text-shadow: 0 1px 3px rgba(76,81,191,0.7);
-            }
-        /* Buttons */
-        .btn-primary {
-            background: linear-gradient(90deg, #4c51bf, #667eea);
+            background: #0A66C2;
             color: white;
+            padding: 0.5rem 1.25rem;
             font-weight: 600;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0.75rem;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            display: inline-block;
+            border-radius: 9999px;
+            box-shadow: 0 6px 12px rgba(10, 102, 194, 0.4);
+            transition: background-color 0.3s ease;
             text-decoration: none;
-            box-shadow: 0 4px 10px rgba(76, 81, 191, 0.4);
         }
 
-            .btn-primary:hover {
-                background: linear-gradient(90deg, #3730a3, #4c51bf);
-                box-shadow: 0 6px 15px rgba(59, 52, 144, 0.8);
-            }
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Responsive tweaks */
-        @media (max-width: 640px) {
-            header .title-row {
-                flex-direction: column;
+            .linkedin-btn:hover {
+                background: #004182;
             }
 
-            header .logo {
-                margin-bottom: 1rem;
-            }
-
-            .card {
-                padding: 1.5rem;
-            }
+        .linkedin-icon {
+            width: 20px;
+            height: 20px;
+            fill: white;
         }
-        /* Inquiry iframe container */
-        .form-container {
-            overflow: hidden;
+
+        /* About Me styles */
+        #about-me {
+            max-width: 700px;
+            margin: 2rem auto 4rem;
+            background: white;
+            padding: 2rem 1.5rem;
             border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            height: 700px;
-            max-width: 800px;
-            margin: 0 auto;
-            border: 2px solid #cbd5e0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            font-size: 1.125rem;
+            line-height: 1.6;
+            text-align: center;
+            color: #374151;
         }
 
-            .form-container iframe {
-                width: 100%;
-                height: 100%;
-                border: none;
-                border-radius: 1rem;
+            #about-me span.wave {
+                display: inline-block;
+                animation: wave 2s infinite;
+                transform-origin: 70% 70%;
             }
+
+        @keyframes wave {
+            0%, 60%, 100% {
+                transform: rotate(0deg);
+            }
+
+            30% {
+                transform: rotate(15deg);
+            }
+
+            45% {
+                transform: rotate(-10deg);
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header class="text-white py-6 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
-            <div class="flex items-center title-row">
-                <img src="logo.png" alt="NWebTech Logo" class="logo mr-4" />
-                <h1 class="text-4xl font-extrabold tracking-tight select-none">NWebTech Solutions</h1>
-            </div>
-            <div class="mt-4 sm:mt-0 text-center sm:text-right font-light">
-                <p class="text-lg">Freelance Services by <span class="font-semibold">Nitin Amonkar</span></p>
-                <p class="text-sm mt-1">Ulwe, Navi Mumbai</p>
-            </div>
+    <!-- Header -->
+    <header class="text-center py-12 bg-white shadow-sm">
+        <img id="logo" src="logo.png" alt="NWebTech Solutions Logo" />
+        <h1 class="text-4xl font-bold text-gray-900">NWebTech Solutions</h1>
+        <p class="text-lg text-gray-600 mt-2">Freelance Services by Nitin Amonkar</p>
+        <div class="mt-4">
+            <a href="https://www.linkedin.com/in/nitinamonkar26" target="_blank" rel="noopener" class="linkedin-btn">
+                <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M20.447 20.452H16.89v-5.569c0-1.328-.025-3.037-1.85-3.037-1.853 0-2.136 1.447-2.136 2.942v5.664H9.338V9h3.415v1.561h.049c.476-.9 1.635-1.85 3.364-1.85 3.6 0 4.267 2.368 4.267 5.452v6.289zM5.337 7.433a1.979 1.979 0 110-3.957 1.979 1.979 0 010 3.957zm1.812 13.02H3.525V9h3.624v11.453zM22.225 0H1.771C.792 0 0 .77 0 1.72v20.507C0 23.225.792 24 1.771 24h20.451c.98 0 1.778-.775 1.778-1.772V1.72c0-.95-.798-1.72-1.775-1.72z" />
+                </svg>
+                Visit my LinkedIn
+            </a>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 space-y-20">
+    <!-- About Me -->
+    <section id="about-me" data-aos="fade-up">
+        <p><span class="wave" aria-label="waving hand" role="img">👋</span> I help small businesses and organizations by building custom web apps, internal software, and guiding them with digital tools. I specialize in <strong>ASP.NET, SQL Server, and Azure</strong>. My solutions are budget-friendly and focused on what you really need.</p>
+    </section>
 
-        <!-- About -->
-        <section data-aos="fade-up" class="text-center max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold mb-6">👋 About Me</h2>
-            <p class="text-lg leading-relaxed text-gray-700">
-                I help small businesses and organizations by building custom web apps, internal software, and guiding them with digital tools.
-                I specialize in ASP.NET, SQL Server, and Azure. My solutions are budget-friendly and focused on what you really need.
-            </p>
-        </section>
+    <!-- Services -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <section id="services" class="my-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-semibold text-center mb-12 text-gray-800">Our Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <!-- Services -->
-        <section data-aos="fade-up">
-            <h2 class="text-4xl font-bold mb-12 text-center">💼 Services I Offer</h2>
-            <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                <div class="card" data-aos="zoom-in" data-aos-delay="50">
-                    <h3>Static Business Websites</h3>
-                    <p class="text-gray-600 leading-relaxed">Clean, mobile-friendly websites to showcase your work.</p>
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300" data-aos="fade-up">
+                    <div class="text-emerald-500 mb-3">
+                        <i data-feather="monitor" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Static Business Websites</h3>
+                    <p class="text-gray-600">Clean, mobile-friendly websites to showcase your work.</p>
                 </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="100">
-                    <h3>Internal Software Tools</h3>
-                    <p class="text-gray-600 leading-relaxed">Billing, attendance, stock management and more.</p>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-indigo-500 mb-3">
+                        <i data-feather="tool" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Internal Software Tools</h3>
+                    <p class="text-gray-600">Billing, attendance, stock management and more.</p>
                 </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="150">
-                    <h3>Digital Strategy Suggestions</h3>
-                    <p class="text-gray-600 leading-relaxed">Which tools to use, how to save time with digital solutions.</p>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-rose-500 mb-3">
+                        <i data-feather="activity" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Digital Strategy Suggestions</h3>
+                    <p class="text-gray-600">Which tools to use, how to save time with digital solutions.</p>
                 </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="200">
-                    <h3>Google Maps Listing Help</h3>
-                    <p class="text-gray-600 leading-relaxed">Help you get your business listed online, free.</p>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-yellow-500 mb-3">
+                        <i data-feather="map-pin" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Google Maps Listing Help</h3>
+                    <p class="text-gray-600">Help you get your business listed online, free.</p>
                 </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="250">
-                    <h3>ITR-1 Filing for Salaried</h3>
-                    <p class="text-gray-600 leading-relaxed">No confusion. Help with document prep and online filing.</p>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-teal-500 mb-3">
+                        <i data-feather="file-text" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">ITR-1 Filing for Salaried</h3>
+                    <p class="text-gray-600">No confusion. Help with document prep and online filing.</p>
                 </div>
-                <div class="card" data-aos="zoom-in" data-aos-delay="300">
-                    <h3>Finance Planning Guidance</h3>
-                    <p class="text-gray-600 leading-relaxed">Simple advice to manage savings, investments, and reduce EMI stress.</p>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-purple-500 mb-3">
+                        <i data-feather="bar-chart-2" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-gray-700">Finance Planning Guidance</h3>
+                    <p class="text-gray-600">Simple advice to manage savings, investments, and reduce EMI stress.</p>
                 </div>
+
             </div>
         </section>
 
-        <!-- Connect -->
-        <section data-aos="fade-up" class="text-center max-w-3xl mx-auto">
-            <h2 class="text-4xl font-bold mb-6">💬 Let's Connect</h2>
-            <p class="mb-3 text-lg">
-                📞 <strong>Phone/WhatsApp:</strong>
-                <a href="https://wa.me/919969501441" target="_blank" rel="noopener noreferrer" class="btn-primary">919969501441</a>
-            </p>
-            <p class="mb-6 text-lg">
-                📧 <strong>Email:</strong>
-                   <a href="mailto:e4.nitin.amonkar@outlook.com" class="btn-primary">e4.nitin.amonkar@outlook.com</a>
-            </p>
-            <p class="italic text-green-700 text-sm max-w-md mx-auto">
-                Note: My services are affordable — tailored for individuals, shops, and small firms.
-            </p>
-        </section>
-
-        <!-- Inquiry Form -->
-        <section data-aos="fade-up" class="max-w-5xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-8">📝 Inquiry Form</h2>
-            <div class="form-container">
-                <iframe src="https://forms.gle/HsHn9pRcVGpD4vJ99?embedded=true"
-                        aria-label="Inquiry form"
-                        loading="lazy">
-                    Loading…
-                </iframe>
+        <!-- Contact -->
+        <section id="contact" class="my-20">
+            <h2 class="text-3xl font-semibold text-center mb-8 text-gray-900">Get In Touch</h2>
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <iframe src="https://forms.gle/HsHn9pRcVGpD4vJ99/" width="100%" height="600" frameborder="0" class="rounded-lg" loading="lazy">Loading…</iframe>
             </div>
         </section>
-
     </main>
 
-    <footer class="bg-gradient-to-r from-indigo-700 to-blue-700 text-white py-6 text-center font-light">
-        <p>© 2025 Nitin Amonkar | Powered by .NET</p>
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-gray-100 text-sm text-gray-500">
+        &copy; 2025 NWebTech Solutions. Built by Nitin Amonkar.
     </footer>
 
-    <!-- AOS Animate On Scroll JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-    AOS.init({
-      duration: 900,
-      once: true,
-      easing: 'ease-in-out',
-    });
-    </script>
+    <!-- Floating Icons -->
+    <div class="floating-icons" role="region" aria-label="Contact links">
+        <a href="mailto:e4.nitin.amonkar@outlook.com" title="Email" aria-label="Send Email">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" /><path d="M22 6L12 13 2 6" /></svg>
+        </a>
+        <a href="https://wa.me/919969501441" title="WhatsApp" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.52 3.48A11.91 11.91 0 0012 0C5.373 0 0 5.373 0 12a11.92 11.92 0 001.64 6.06L0 24l5.98-1.56A11.963 11.963 0 0012 24c6.627 0 12-5.373 12-12a11.93 11.93 0 00-3.48-8.52zM12 21.5c-1.856 0-3.588-.56-5.05-1.52l-.362-.22-3.55.925.945-3.462-.24-.366A9.432 9.432 0 012.5 12c0-5.25 4.25-9.5 9.5-9.5 2.54 0 4.92.99 6.7 2.78A9.41 9.41 0 0121.5 12c0 5.25-4.25 9.5-9.5 9.5zm5.23-7.03c-.25-.12-1.47-.72-1.7-.8-.23-.08-.4-.12-.57.12-.17.25-.65.8-.8.96-.15.17-.3.19-.56.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.44.12-.15.16-.25.25-.42.09-.17.05-.31-.02-.44-.07-.12-.57-1.38-.78-1.88-.2-.5-.4-.43-.57-.44-.15 0-.32-.01-.5-.01-.17 0-.44.06-.67.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.55.12.17 1.73 2.64 4.2 3.7.59.25 1.05.4 1.41.51.59.18 1.12.15 1.54.09.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.12-.22-.17-.46-.3z" />
+            </svg>
+        </a>
+    </div>
 
+    <!-- Scripts -->
+    <script>
+      AOS.init({ duration: 800, once: true });
+      feather.replace();
+    </script>
 </body>
 </html>
